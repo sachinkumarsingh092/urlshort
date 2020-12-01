@@ -1,2 +1,2 @@
 # urlshort
-Make your URL short like bit.ly
+Make your own short URLs like `bit.ly`.
