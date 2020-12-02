@@ -48,12 +48,13 @@ func YAMLHandler(yml []byte, fallback http.Handler) (http.HandlerFunc, error) {
 	return MapHandler(pathMap, fallback), nil
 }
 
-// Paths to store the paths to URLs
+// Paths stores an array of the paths to URLs
 type Paths []struct {
 	Path string `yaml:"path"`
 	URL  string `yaml:"url"`
 }
 
+// parseYAML parses the yaml file and returns a Paths structure array
 func parseYAML(yml []byte) (Paths, error) {
 	paths := Paths{}
 	err := yaml.Unmarshal(yml, &paths)
@@ -65,6 +66,7 @@ func parseYAML(yml []byte) (Paths, error) {
 	return paths, nil
 }
 
+// buildMap makes a map with the Paths strucre array
 func buildMap(parsedYaml Paths) map[string]string {
 	pathMap := make(map[string]string, len(parsedYaml))
 	for i := 0; i < len(parsedYaml); i++ {

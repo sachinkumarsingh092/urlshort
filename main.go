@@ -15,6 +15,13 @@ const (
 	yamlFlagDescription = "Sets the YAML file to create URL map."
 )
 
+var yaml string
+
+var pathsToUrls = map[string]string{
+	"/http-godoc": "https://godoc.org/net/http",
+	"/yaml-godoc": "https://godoc.org/gopkg.in/yaml.v2",
+}
+
 // Flagger is an interface to configure various flags.
 type Flagger interface {
 	StringVar(p *string, name, defval, description string)
@@ -26,16 +33,9 @@ func (u *urlshortFlagger) StringVar(p *string, name, defval, description string)
 	flag.StringVar(p, name, defval, description)
 }
 
-var yaml string
-
 // ConfigFlag configures the flags.
 func ConfigFlag(flagger Flagger) {
 	flagger.StringVar(&yaml, yamlFlag, yamlFlagDefVal, yamlFlagDescription)
-}
-
-var pathsToUrls = map[string]string{
-	"/http-godoc": "https://godoc.org/net/http",
-	"/yaml-godoc": "https://godoc.org/gopkg.in/yaml.v2",
 }
 
 func createMapHandler() http.HandlerFunc {
