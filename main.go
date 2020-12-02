@@ -11,7 +11,7 @@ import (
 
 const (
 	yamlFlag            = "yaml"
-	yamlFlagDefVal      = "urls.yaml"
+	yamlFlagDefVal      = "./urlmaps/urls.yaml"
 	yamlFlagDescription = "Sets the YAML file to create URL map."
 )
 
