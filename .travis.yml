@@ -1,0 +1,17 @@
+language: go
+
+service:
+  - docker
+
+go:
+  - 1.x
+
+script:
+  - make lint test
+  - docker build -t sachinkumarsingh092/urlshort:latest .
+
+deploy:
+  provider: script
+  script: docker push sachinkumarsingh092/urlshort:latest
+  on:
+    branch: master

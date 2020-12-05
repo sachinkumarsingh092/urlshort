@@ -28,10 +28,10 @@ $ go mod verify
   
   The program will start on port 8080 locally.
 
-**Test using `curl`**:
-```
-curl -i localhost:8080/<SOME_PATH>
-```
+  - **Test using `curl`**:
+  ```
+  curl -i localhost:8080/<SOME_PATH>
+  ```
 
 - ### Build using Docker
 
@@ -49,10 +49,10 @@ curl -i localhost:8080/<SOME_PATH>
   
   The host can now communicate with the container on port 80.
 
-**Test using `curl`**:
-```
-curl -i localhost:80/<SOME_PATH>
-```
+  - **Test using `curl`**:
+  ```
+  curl -i localhost:80/<SOME_PATH>
+  ```
 
 ## Options
 ```

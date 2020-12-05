@@ -3,6 +3,8 @@
 # https://hub.docker.com/_/golang
 FROM golang:1.15.4 as builder
 
+LABEL author="sachinkumarsingh092@gmail.com"
+
 # Ensure /app directory exists.
 RUN mkdir -p /app
 
@@ -27,5 +29,10 @@ COPY --from=builder /app/urlshort /urlshort
 # Copy the urlmaps yaml files in /urlmaps directory in alpine.
 COPY --from=builder /app/urlmaps ./urlmaps
 
+# Copy the urlmaps yaml files in /urlmaps directory in alpine.
+COPY --from=builder /app/docker-entrypoint.sh ./docker-entrypoint.sh
+
+RUN chmod u+x ./docker-entrypoint.sh
+
 # Run the web service on container startup.
-ENTRYPOINT [ "/urlshort" ]
+ENTRYPOINT [ "./docker-entrypoint.sh" ]
