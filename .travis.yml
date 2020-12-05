@@ -15,6 +15,6 @@ script:
 
 deploy:
   provider: script
-  script: docker push sachinkumarsingh092/urlshort:latest
+  script: bash docker-push.sh
   on:
     branch: master
