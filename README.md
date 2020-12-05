@@ -1,4 +1,8 @@
 # urlshort
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/sachinkumarsingh092/urlshort)](https://pkg.go.dev/badge/github.com/sachinkumarsingh092/urlshort)
+[![Go Report Card](https://goreportcard.com/badge/github.com/sachinkumarsingh092/urlshort)](https://goreportcard.com/report/github.com/sachinkumarsingh092/urlshort)
+[![Build Status](https://travis-ci.com/sachinkumarsingh092/urlshort.svg?branch=master)](https://travis-ci.com/sachinkumarsingh092/urlshort)
+
 Make your own short URLs. Use a customized YAML file to make the paths and URLs.
 
 ## Installation
