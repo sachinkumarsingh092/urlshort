@@ -6,6 +6,9 @@ service:
 go:
   - 1.x
 
+before_install:
+  - go get -u golang.org/x/lint/golint
+
 script:
   - make lint test
   - docker build -t sachinkumarsingh092/urlshort:latest .
