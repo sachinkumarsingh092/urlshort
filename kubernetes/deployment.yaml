@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: urlshort-gke
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: urlshort
+  template:
+    metadata:
+      labels:
+        app: urlshort
+    spec:
+      containers:
+      - name: urlshort-app
+        image: docker.io/<YOUR_USERNAME>/urlshort:latest
+        ports:
+        - containerPort: 8080
+        env:
+          - name: PORT
+            value: "8080"
